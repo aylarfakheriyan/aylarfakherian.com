@@ -1,31 +1,31 @@
 const projects = [
   {
     number: "01",
-    title: "LENS",
+    category: "DESIGN · XR",
+    title: "Chess with Ferdowsi",
     description:
-      "A Research through Design investigation of how immersive experiences can support meaningful encounters with cultural moments.",
-    tags: "RtD · XR · AI · Cultural Heritage",
+      "An embodied interaction project exploring how physical artefacts and immersive media can create new encounters with cultural narratives.",
   },
   {
     number: "02",
-    title: "OMNIS",
+    category: "XR · RESEARCH",
+    title: "Simurgh",
     description:
-      "An AI-mediated cultural heritage prototype exploring how local language models can shape interaction with cultural material.",
-    tags: "AI · Unity · Interaction Design",
+      "An interactive VR experience exploring the transmission of intangible cultural heritage through immersive narrative and embodied interaction.",
   },
   {
     number: "03",
-    title: "SIMURGH",
+    category: "AI · INTERACTION",
+    title: "OMNIS",
     description:
-      "An interactive VR experience exploring the transmission of intangible cultural heritage through immersive narrative and embodied interaction.",
-    tags: "VR · RtD · Cultural Narrative",
+      "An early prototype exploring AI as a mediator between people and cultural heritage material.",
   },
   {
     number: "04",
-    title: "SHAHNAMEH MASKS",
+    category: "RESEARCH · RtD",
+    title: "LENS",
     description:
-      "A Research through Design project investigating how physical and virtual artefacts shape embodied interaction with cultural narratives.",
-    tags: "Embodied Interaction · XR · Craft",
+      "A Research through Design investigation into how immersive experiences can support meaningful encounters with cultural moments.",
   },
 ];
 
@@ -33,119 +33,199 @@ export default function Home() {
   return (
     <main>
       <nav>
-        <div className="nav-name">AYLAR FAKHERIAN</div>
+        <a href="#" className="nav-name">
+          AYLAR FAKHERIAN
+        </a>
 
         <div className="nav-links">
+          <a href="#work">Work</a>
+          <a href="#design">Design</a>
           <a href="#research">Research</a>
-          <a href="#projects">Projects</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </div>
+
+        <button className="theme-toggle" aria-label="Toggle theme">
+          ◐
+        </button>
       </nav>
 
       <section className="hero">
-        <p className="eyebrow">HUMAN-CENTRED DESIGN · RESEARCH THROUGH DESIGN</p>
+        <div className="hero-top">
+          <span>HUMAN-CENTRED DESIGN</span>
+          <span>XR · AI · INTERACTION</span>
+        </div>
 
-        <h1>
-          Designing meaningful
-          <br />
-          encounters with
-          <br />
-          <em>emerging technologies.</em>
-        </h1>
+        <div className="hero-main">
+          <h1>
+            Designing
+            <br />
+            encounters with
+            <br />
+            <em>emerging technology.</em>
+          </h1>
 
-        <div className="hero-bottom">
-          <p className="intro">
-            I investigate how people create, interpret, and experience meaning
-            through interactions with emerging technologies.
+          <p>
+            I design interactive experiences across culture, technology, and
+            emerging media — using research through design to explore questions
+            that begin with making.
           </p>
-
-          <p className="location">XR · AI · DIGITAL CULTURAL HERITAGE</p>
         </div>
       </section>
 
-      <section id="research" className="research-section">
-        <div className="section-label">01 — RESEARCH</div>
+      <section id="work" className="section work-section">
+        <div className="section-label">
+          <span>01</span>
+          <span>SELECTED WORK</span>
+        </div>
 
-        <div className="research-content">
+        <div className="section-main">
+          <div className="section-intro">
+            <h2>Things I have been making.</h2>
+          </div>
+
+          <div className="projects-list">
+            {projects.map((project) => (
+              <article className="project" key={project.number}>
+                <span className="project-number">{project.number}</span>
+
+                <div className="project-content">
+                  <span className="project-category">
+                    {project.category}
+                  </span>
+
+                  <h3>{project.title}</h3>
+
+                  <p>{project.description}</p>
+
+                  <span className="project-link">VIEW PROJECT ↗</span>
+                </div>
+
+                <span className="project-arrow">↗</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="design" className="section design-section">
+        <div className="section-label">
+          <span>02</span>
+          <span>DESIGN</span>
+        </div>
+
+        <div className="section-main">
           <h2>
-            Research through Design as a way of asking questions through
-            making.
+            Designing across
+            <br />
+            <em>visual, interactive,</em>
+            <br />
+            and immersive media.
           </h2>
 
-          <p>
-            My work explores how interactive and immersive technologies can
-            create new ways of encountering cultural material. I use design
-            practice, prototyping, and critical reflection to investigate
-            these encounters.
-          </p>
-
-          <p>
-            My current research direction focuses on AI-mediated immersive
-            experiences, embodiment, spatial configuration, narrative, and
-            digital cultural heritage.
+          <p className="large-copy">
+            My practice moves between visual communication, interaction
+            design, experience design, and immersive media. I am interested in
+            how form, interaction, space, and technology shape what people
+            notice, feel, and understand.
           </p>
         </div>
       </section>
 
-      <section id="projects" className="projects-section">
-        <div className="section-label">02 — SELECTED WORK</div>
-
-        <div className="projects-list">
-          {projects.map((project) => (
-            <article className="project" key={project.number}>
-              <div className="project-number">{project.number}</div>
-
-              <div className="project-main">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-                <span>{project.tags}</span>
-              </div>
-
-              <div className="project-arrow">↗</div>
-            </article>
-          ))}
+      <section id="research" className="section research-section">
+        <div className="section-label">
+          <span>03</span>
+          <span>RESEARCH</span>
         </div>
-      </section>
 
-      <section id="about" className="about-section">
-        <div className="section-label">03 — ABOUT</div>
-
-        <div className="about-content">
+        <div className="section-main">
           <h2>
-            Designer working between interaction, culture, and emerging
-            technology.
+            Research through Design
+            <br />
+            as a way of thinking
+            <br />
+            <em>through making.</em>
           </h2>
 
-          <p>
-            I hold an MA in Computer Arts — Intelligent Simulation Design. My
-            practice combines visual communication, interaction design, XR,
-            computational media, and Research through Design.
+          <p className="large-copy">
+            My research explores how interactive and immersive technologies
+            can create new ways of encountering cultural material. Through
+            making, prototyping, and reflection, I investigate questions around
+            embodiment, narrative, spatial configuration, AI, and cultural
+            heritage.
           </p>
 
-          <a className="text-link" href="https://github.com/aylarfakheriyan">
-            GitHub ↗
-          </a>
+          <div className="research-project">
+            <span>LENS</span>
+            <p>
+              Designing Encounters with Cultural Moments — a Research through
+              Design investigation of design configurations.
+            </p>
+            <a href="#work">EXPLORE ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="section about-section">
+        <div className="section-label">
+          <span>04</span>
+          <span>ABOUT</span>
+        </div>
+
+        <div className="section-main about-main">
+          <div className="about-photo">
+            <span>PHOTO</span>
+          </div>
+
+          <div className="about-text">
+            <h2>
+              Designer, maker,
+              <br />
+              and curious
+              <br />
+              <em>question-follower.</em>
+            </h2>
+
+            <p className="large-copy">
+              I hold an MA in Computer Arts — Intelligent Simulation Design.
+              My work brings together design practice, interactive media, XR,
+              computational technologies, and cultural material.
+            </p>
+
+            <div className="about-links">
+              <a href="#">CV ↗</a>
+              <a href="https://github.com/aylarfakheriyan">GitHub ↗</a>
+              <a href="https://www.behance.net/aylarfakherian">
+                Behance ↗
+              </a>
+              <a href="https://www.linkedin.com/in/aylarfakherian/">
+                LinkedIn ↗
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 
       <section id="contact" className="contact-section">
-        <p className="eyebrow">LET&apos;S TALK</p>
+        <span className="section-label">05 — CONTACT</span>
 
         <h2>
-          Interested in the research,
+          Have a question?
           <br />
-          the work, or the questions?
+          <em>Follow it.</em>
         </h2>
 
-        <a href="mailto:aylarfakheriyan@gmail.com">
+        <a
+          className="contact-email"
+          href="mailto:aylarfakheriyan@gmail.com"
+        >
           aylarfakheriyan@gmail.com ↗
         </a>
       </section>
 
       <footer>
-        <span>© 2026 Aylar Fakherian</span>
-        <span>Research through Design · XR · AI</span>
+        <span>© 2026 AYLAR FAKHERIAN</span>
+        <span>DESIGN · RESEARCH · XR · AI</span>
       </footer>
     </main>
   );

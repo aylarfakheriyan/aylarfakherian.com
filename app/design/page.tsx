@@ -25,7 +25,7 @@ const projects: Project[] = [
     year: "2026–ongoing",
     summary: "A world entirely made by hand.",
     description:
-      "An ongoing design exploration built around the act of constructing a world by hand, before introducing digital mediation.",
+      "A design exploration about building a world from the ground up, before digital mediation enters the picture.",
     mark: "",
     images: [],
     video:
@@ -45,7 +45,7 @@ const projects: Project[] = [
     summary:
       "An embodied exploration of cultural narratives through physical and virtual artefacts.",
     description:
-      "An ongoing Research through Design investigation into how physical and virtual artefacts can shape embodied encounters with cultural narratives.",
+      "A Research through Design investigation into how physical and virtual artefacts shape embodied interaction with cultural narratives.",
     mark:
       "/images/projects/chess-with-ferdowsi/chess-with-ferdowsi-mark.png",
     images: [
@@ -56,7 +56,6 @@ const projects: Project[] = [
       "/images/projects/chess-with-ferdowsi/05-belligerent-performance-chess-with-aylar-fakherian.jpg",
       "/images/projects/chess-with-ferdowsi/PHOTO-09.jpg",
     ],
-    // Video will be added here later.
     video: undefined,
     links: [
       {
@@ -80,7 +79,7 @@ const projects: Project[] = [
     year: "2026–ongoing",
     summary: "A shift from making to observing.",
     description:
-      "An emerging design investigation that shifts attention from making objects to observing the relationships that form around them.",
+      "An emerging exploration of what becomes visible when the act of making gives way to observing.",
     mark: "",
     images: [],
     video:
@@ -100,7 +99,7 @@ const projects: Project[] = [
     summary:
       "An immersive VR experience exploring the Simurgh myth through environment, storytelling and interaction.",
     description:
-      "An interactive virtual reality experience based on the Persian Simurgh myth, exploring environmental storytelling, animation and interaction as ways of bringing cultural narrative into an immersive medium.",
+      "A Research through Design project investigating immersive experiences for transmitting intangible cultural heritage through Virtual Reality.",
     mark: "/images/projects/simurgh/simurgh-mark.png",
     images: [
       "/images/projects/simurgh/simurgh-header.jpg",
@@ -134,7 +133,7 @@ const projects: Project[] = [
     summary:
       "An early exploration of AI-mediated interaction with cultural material.",
     description:
-      "An early Research through Design prototype exploring how a locally running language model might mediate interaction with cultural material.",
+      "A Unity prototype exploring local language-model integration and AI-mediated interaction with cultural material.",
     mark: "/images/projects/omnis/omnis-mark.png",
     images: [
       "/images/projects/omnis/Docs-omnis-ai-cultural-mediator.png",
@@ -161,12 +160,6 @@ const projects: Project[] = [
 
 export default function Design() {
   const [openProject, setOpenProject] = useState<number | null>(null);
-
-  const toggleProject = (index: number) => {
-    setOpenProject((current) =>
-      current === index ? null : index
-    );
-  };
 
   return (
     <>
@@ -196,7 +189,9 @@ export default function Design() {
                 <button
                   type="button"
                   className="design-project-row"
-                  onClick={() => toggleProject(index)}
+                  onClick={() =>
+                    setOpenProject(isOpen ? null : index)
+                  }
                   aria-expanded={isOpen}
                 >
                   <span className="design-project-number">
@@ -213,33 +208,27 @@ export default function Design() {
                     </span>
                   </span>
 
-                  <span
-                    className={`design-project-mark ${
-                      project.mark ? "" : "placeholder"
-                    }`}
-                  >
-                    {project.mark && (
+                  {project.mark ? (
+                    <span className="design-project-mark">
                       <img
                         src={project.mark}
                         alt=""
                       />
-                    )}
-                  </span>
+                    </span>
+                  ) : (
+                    <span className="design-project-mark placeholder" />
+                  )}
 
-                  <span
-                    className={`design-project-plus ${
-                      isOpen ? "open" : ""
-                    }`}
-                  >
-                    +
+                  <span className="design-project-plus">
+                    {isOpen ? "−" : "+"}
                   </span>
                 </button>
 
                 {isOpen && (
                   <div className="design-project-expanded">
-                    <div className="design-project-description">
-                      <p>{project.description}</p>
-                    </div>
+                    <p className="design-project-description">
+                      {project.description}
+                    </p>
 
                     {(project.images.length > 0 || project.video) && (
                       <div className="design-project-media">
@@ -258,8 +247,8 @@ export default function Design() {
                         {project.video && (
                           <div className="design-project-video">
                             <iframe
-                              title={`${project.title} — Vimeo`}
                               src={project.video}
+                              title={`${project.title} — Vimeo`}
                               width="640"
                               height="360"
                               frameBorder="0"
@@ -272,9 +261,7 @@ export default function Design() {
                     )}
 
                     <div className="design-project-footer">
-                      <span>
-                        For the broader trajectory of the project:
-                      </span>
+                      <span>Explore the project:</span>
 
                       <div className="design-project-links">
                         {project.links.map((link) => (

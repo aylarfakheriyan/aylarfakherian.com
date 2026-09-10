@@ -7,21 +7,57 @@ export default function Home() {
       <SiteNav />
 
       <main className="page-shell">
-        {/* HERO */}
 
-        <section className="home-hero">
-          <div className="hero-copy">
-            <span className="kicker">AYLAR FAKHERIAN</span>
+        {/* HOME INTRO */}
 
-            <h1>
-              A World <em>Builder.</em>
-            </h1>
+        <section className="home-intro">
 
-            <p className="hero-role">
-              Human-Centred Designer
-              <br />
-              Research through Design · XR · AI
-            </p>
+          <div className="home-intro-main">
+
+            <div className="hero-copy">
+              <span className="kicker">AYLAR FAKHERIAN</span>
+
+              <h1>
+                A World <em>Builder.</em>
+              </h1>
+
+              <p className="hero-role">
+                Human-Centred Designer
+                <br />
+                Research through Design · XR · AI
+              </p>
+            </div>
+
+            <div className="intro-content">
+              <h2>Hi, I’m Aylar.</h2>
+
+              <p className="intro-lead">
+                I like making things — and then wondering what else they
+                could become.
+              </p>
+
+              <p>
+                I started in Visual Communication Design, where I learned
+                to think through images, objects, stories, and the worlds
+                they can create.
+              </p>
+
+              <p>
+                During my MA in Computer Arts — Intelligent Simulation
+                Design, I began bringing those ideas into interactive and
+                immersive spaces. I learned how visual design, 3D,
+                animation, interaction, and technology could become ways of
+                bringing people into worlds rather than simply showing them
+                one.
+              </p>
+
+              <p>
+                Now I’m interested in what happens next: can I design
+                experiences where people do not just look at a world, but
+                actually feel like they are <em>there</em>?
+              </p>
+            </div>
+
           </div>
 
           <div className="hero-photo">
@@ -30,47 +66,14 @@ export default function Home() {
               alt="Aylar Fakherian"
             />
           </div>
+
         </section>
 
-        {/* INTRO */}
-
-        <section className="intro-section">
-          <div className="section-number">01</div>
-
-          <div className="intro-content">
-            <h2>Hi, I’m Aylar.</h2>
-
-            <p className="intro-lead">
-              I like making things — and then wondering what else they
-              could become.
-            </p>
-
-            <p>
-              I started in Visual Communication Design, where I learned
-              to think through images, objects, stories, and the worlds
-              they can create.
-            </p>
-
-            <p>
-              During my MA in Computer Arts — Intelligent Simulation
-              Design, I began bringing those ideas into interactive and
-              immersive spaces. I learned how visual design, 3D, animation,
-              interaction, and technology could become ways of bringing
-              people into worlds rather than simply showing them one.
-            </p>
-
-            <p>
-              Now I’m interested in what happens next: can I design
-              experiences where people do not just look at a world, but
-              actually feel like they are <em>there</em>?
-            </p>
-          </div>
-        </section>
 
         {/* EDUCATION */}
 
         <section className="education-section">
-          <div className="section-number">02</div>
+          <div className="section-number">01</div>
 
           <div className="education-content">
             <span className="kicker">EDUCATION</span>
@@ -96,6 +99,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
 
         {/* NEWS */}
 
@@ -157,6 +161,7 @@ export default function Home() {
           </Link>
         </section>
 
+
         {/* LATEST POSTS */}
 
         <section className="home-list-section">
@@ -173,6 +178,7 @@ export default function Home() {
 
             <div>
               <h3>Notes from the making of Chess with Ferdowsi</h3>
+
               <p>
                 A short reflection on artefacts, embodiment, and making.
               </p>
@@ -186,6 +192,7 @@ export default function Home() {
 
             <div>
               <h3>Building Simurgh in VR</h3>
+
               <p>
                 From cultural narrative to an interactive immersive
                 experience.
@@ -195,6 +202,7 @@ export default function Home() {
             <span className="arrow">↗</span>
           </Link>
         </section>
+
 
         {/* SELECTED PUBLICATIONS */}
 
@@ -233,7 +241,9 @@ export default function Home() {
             <span>2018</span>
 
             <div>
-              <h3>Converting Human Movements into a Conceptual Painting</h3>
+              <h3>
+                Converting Human Movements into a Conceptual Painting
+              </h3>
 
               <p>
                 Journal publication · Motion Capture · Interactive Media
@@ -243,6 +253,7 @@ export default function Home() {
             <span className="arrow">↗</span>
           </Link>
         </section>
+
 
         {/* FOOTER CTA */}
 
@@ -259,6 +270,7 @@ export default function Home() {
             LET’S TALK ↗
           </Link>
         </section>
+
       </main>
     </>
   );

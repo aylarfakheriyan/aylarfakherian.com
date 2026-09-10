@@ -10,7 +10,10 @@ type Project = {
   description: string;
   mark?: string;
   images?: string[];
-  vimeo?: string;
+  videos?: {
+    label: string;
+    src: string;
+  }[];
   links?: {
     label: string;
     href: string;
@@ -32,7 +35,12 @@ const projects: Project[] = [
       "/images/projects/worlds-before-worlds/04-worlds-before-worlds.png",
       "/images/projects/worlds-before-worlds/05-worlds-before-worlds.png",
     ],
-    vimeo: "https://player.vimeo.com/video/1212795596?h=d2fc98196e",
+    videos: [
+      {
+        label: "Video",
+        src: "https://player.vimeo.com/video/1212795596?h=d2fc98196e",
+      },
+    ],
     links: [
       {
         label: "VIMEO",
@@ -85,11 +93,20 @@ const projects: Project[] = [
       "/images/projects/hidden-relationships/04-hidden-relationships.png",
       "/images/projects/hidden-relationships/05-hidden-relationships.png",
     ],
-    vimeo: "https://player.vimeo.com/video/1223148169?h=33069206dc",
+    videos: [
+      {
+        label: "Video",
+        src: "https://player.vimeo.com/video/1223148169?h=33069206dc",
+      },
+    ],
     links: [
       {
         label: "VIMEO",
         href: "https://vimeo.com/1223148169",
+      },
+      {
+        label: "BEHANCE",
+        href: "https://www.behance.net/gallery/255112317/Hidden-Relationships-A-Shift-From-Making-to-Observing",
       },
     ],
   },
@@ -101,8 +118,19 @@ const projects: Project[] = [
     description:
       "An interactive virtual reality experience exploring the Simurgh myth through immersive storytelling and environmental interaction.",
     mark: "/images/projects/simurgh/simurgh-mark.png",
-    images: ["/images/projects/simurgh/simurgh-header.jpg"],
-    vimeo: "https://player.vimeo.com/video/1211843738?h=70095fea1b",
+    images: [
+      "/images/projects/simurgh/simurgh-header.jpg",
+    ],
+    videos: [
+      {
+        label: "The First Encounter",
+        src: "https://player.vimeo.com/video/1211843738?h=70095fea1b",
+      },
+      {
+        label: "The Experience",
+        src: "https://player.vimeo.com/video/1211521489?h=f31736f5e6",
+      },
+    ],
     links: [
       {
         label: "GITHUB",
@@ -130,7 +158,6 @@ const projects: Project[] = [
       "/images/projects/omnis/Docs-omnis-ai-cultural-mediator.png",
       "/images/projects/omnis/Docs-omnis-demo.gif",
     ],
-    vimeo: "https://player.vimeo.com/video/1211521489?h=f31736f5e6",
     links: [
       {
         label: "GITHUB",
@@ -247,15 +274,29 @@ export default function DesignPage() {
                       </div>
                     )}
 
-                    {project.vimeo && (
-                      <div className="design-video">
-                        <iframe
-                          src={project.vimeo}
-                          title={`${project.title} video`}
-                          frameBorder="0"
-                          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                          allowFullScreen
-                        />
+                    {project.videos && project.videos.length > 0 && (
+                      <div className="design-videos">
+                        {project.videos.map((video) => (
+                          <div
+                            className="design-video-block"
+                            key={video.src}
+                          >
+                            <div className="design-video-label">
+                              {video.label}
+                            </div>
+
+                            <div className="design-video">
+                              <iframe
+                                src={video.src}
+                                title={`${project.title} — ${video.label}`}
+                                frameBorder="0"
+                                referrerPolicy="strict-origin-when-cross-origin"
+                                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                                allowFullScreen
+                              />
+                            </div>
+                          </div>
+                        ))}
                       </div>
                     )}
 
@@ -293,21 +334,23 @@ export default function DesignPage() {
         }
 
         .design-kicker {
-          margin-bottom: 12px;
-          font-family: Arial, Helvetica, sans-serif;
-          font-size: 10px;
-          font-weight: 700;
-          letter-spacing: 0.12em;
+          margin-bottom: 16px;
+          font-family: Georgia, "Times New Roman", serif;
+          font-size: 58px;
+          line-height: 0.95;
+          font-weight: 400;
+          font-style: italic;
+          letter-spacing: -0.04em;
         }
 
         .design-intro h1 {
           max-width: 610px;
           margin: 0;
           font-family: Arial, Helvetica, sans-serif;
-          font-size: 25px;
-          line-height: 1.35;
-          font-weight: 600;
-          letter-spacing: -0.025em;
+          font-size: 17px;
+          line-height: 1.55;
+          font-weight: 400;
+          letter-spacing: 0;
         }
 
         .design-index {
@@ -462,10 +505,25 @@ export default function DesignPage() {
           object-fit: cover;
         }
 
+        .design-videos {
+          width: 100%;
+        }
+
+        .design-video-block {
+          width: 100%;
+          margin-bottom: 30px;
+        }
+
+        .design-video-label {
+          margin-bottom: 10px;
+          font-family: Georgia, "Times New Roman", serif;
+          font-size: 16px;
+          line-height: 1.2;
+        }
+
         .design-video {
           width: 100%;
           aspect-ratio: 16 / 9;
-          margin-bottom: 28px;
           background: #111;
           overflow: hidden;
         }
@@ -508,8 +566,12 @@ export default function DesignPage() {
             margin-bottom: 60px;
           }
 
+          .design-kicker {
+            font-size: 46px;
+          }
+
           .design-intro h1 {
-            font-size: 21px;
+            font-size: 16px;
           }
 
           .design-entry-header {

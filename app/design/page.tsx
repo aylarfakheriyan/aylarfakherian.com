@@ -9,8 +9,10 @@ type Project = {
   year: string;
   summary: string;
   description: string;
+  mark: string;
   images: string[];
-  links?: {
+  video?: string;
+  links: {
     label: string;
     href: string;
   }[];
@@ -19,14 +21,34 @@ type Project = {
 const projects: Project[] = [
   {
     number: "01",
+    title: "Worlds before worlds",
+    year: "2026–ongoing",
+    summary: "A world entirely made by hand.",
+    description:
+      "An ongoing design exploration built around the act of constructing a world by hand, before introducing digital mediation.",
+    mark: "",
+    images: [],
+    video:
+      "https://player.vimeo.com/video/1212795596?h=d2fc98196e",
+    links: [
+      {
+        label: "VIMEO ↗",
+        href: "https://vimeo.com/1212795596",
+      },
+    ],
+  },
+
+  {
+    number: "02",
     title: "Chess with Ferdowsi",
     year: "2025–ongoing",
     summary:
-      "An ongoing Research through Design investigation into physical and virtual artefacts, embodied interaction, and cultural narratives.",
+      "An embodied exploration of cultural narratives through physical and virtual artefacts.",
     description:
-      "Chess with Ferdowsi explores how physical and virtual artefacts can shape embodied encounters with cultural narratives. Using the Shahnameh as design material, the project moves between ceramic masks, performance, and an emerging virtual study. Rather than treating the artefact as a representation of the story, the work asks what happens when cultural material becomes something people physically and digitally encounter, handle, perform with, and interpret.",
+      "An ongoing Research through Design investigation into how physical and virtual artefacts can shape embodied encounters with cultural narratives.",
+    mark:
+      "/images/projects/chess-with-ferdowsi/chess-with-ferdowsi-mark.png",
     images: [
-      "/images/projects/chess-with-ferdowsi/chess-with-ferdowsi-header-by-aylar-fakherian.png",
       "/images/projects/chess-with-ferdowsi/01-greed-performance-chess-with-ferdowsi-aylar-fakherian.jpg",
       "/images/projects/chess-with-ferdowsi/02-love-performance-chess-with-ferdowsi-aylar-fakherian.jpg",
       "/images/projects/chess-with-ferdowsi/03-deception-performance-chess-with-ferdowsi-aylar-fakherian.jpg",
@@ -34,37 +56,100 @@ const projects: Project[] = [
       "/images/projects/chess-with-ferdowsi/05-belligerent-performance-chess-with-aylar-fakherian.jpg",
       "/images/projects/chess-with-ferdowsi/PHOTO-09.jpg",
     ],
+    // Video will be added here later.
+    video: undefined,
     links: [
+      {
+        label: "LIVE ↗",
+        href: "https://aylarfakheriyan.github.io/Chess-with-Ferdowsi-/",
+      },
       {
         label: "GITHUB ↗",
         href: "https://github.com/aylarfakheriyan/Chess-with-Ferdowsi-",
       },
       {
-        label: "LIVE ↗",
-        href: "https://aylarfakheriyan.github.io/Chess-with-Ferdowsi-/",
+        label: "BEHANCE ↗",
+        href: "https://www.behance.net/gallery/253451165/Chess-with-Ferdowsi",
       },
     ],
   },
 
   {
-    number: "02",
+    number: "03",
+    title: "Hidden Relationships",
+    year: "2026–ongoing",
+    summary: "A shift from making to observing.",
+    description:
+      "An emerging design investigation that shifts attention from making objects to observing the relationships that form around them.",
+    mark: "",
+    images: [],
+    video:
+      "https://player.vimeo.com/video/1223148169?h=33069206dc",
+    links: [
+      {
+        label: "VIMEO ↗",
+        href: "https://vimeo.com/1223148169",
+      },
+    ],
+  },
+
+  {
+    number: "04",
     title: "Simurgh",
     year: "2022–2026",
     summary:
-      "An interactive VR experience that explores the Simurgh myth through immersive environment, storytelling, and interaction.",
+      "An immersive VR experience exploring the Simurgh myth through environment, storytelling and interaction.",
     description:
-      "Simurgh is an interactive virtual reality experience based on the Persian myth of the Simurgh. Developed through Unity and Blender, the project experiments with environmental storytelling, animation, spatial presence, and interaction as ways of bringing an intangible cultural narrative into an immersive medium. The project also became the basis for a research study on designing and evaluating immersive experiences for cultural heritage.",
+      "An interactive virtual reality experience based on the Persian Simurgh myth, exploring environmental storytelling, animation and interaction as ways of bringing cultural narrative into an immersive medium.",
+    mark: "/images/projects/simurgh/simurgh-mark.png",
     images: [
       "/images/projects/simurgh/simurgh-header.jpg",
     ],
+    video:
+      "https://player.vimeo.com/video/1211843738?h=70095fea1b",
     links: [
+      {
+        label: "LIVE ↗",
+        href: "https://aylarfakheriyan.github.io/Simurgh-RtD/",
+      },
       {
         label: "GITHUB ↗",
         href: "https://github.com/aylarfakheriyan/Simurgh-RtD",
       },
       {
         label: "BEHANCE ↗",
-        href: "https://www.behance.net/gallery/253057297/Simurgh-Interactive-VR-Experience",
+        href: "https://www.behance.net/gallery/253057297/04_Simurgh-Interactive-VR-Experience",
+      },
+      {
+        label: "VIMEO ↗",
+        href: "https://vimeo.com/1211843738",
+      },
+    ],
+  },
+
+  {
+    number: "05",
+    title: "OMNIS",
+    year: "2025–ongoing",
+    summary:
+      "An early exploration of AI-mediated interaction with cultural material.",
+    description:
+      "An early Research through Design prototype exploring how a locally running language model might mediate interaction with cultural material.",
+    mark: "/images/projects/omnis/omnis-mark.png",
+    images: [
+      "/images/projects/omnis/Docs-omnis-ai-cultural-mediator.png",
+      "/images/projects/omnis/Docs-omnis-demo.gif",
+    ],
+    video:
+      "https://player.vimeo.com/video/1211521489?h=f31736f5e6",
+    links: [
+      {
+        label: "LIVE ↗",
+        href: "https://aylarfakheriyan.github.io/OMNIS/",
+      },
+      {
+        label: "GITHUB ↗",
+        href: "https://github.com/aylarfakheriyan/OMNIS",
       },
       {
         label: "VIMEO ↗",
@@ -72,59 +157,15 @@ const projects: Project[] = [
       },
     ],
   },
-
-  {
-    number: "03",
-    title: "OMNIS",
-    year: "2025–ongoing",
-    summary:
-      "An early Research through Design prototype exploring AI-mediated interaction with cultural heritage.",
-    description:
-      "OMNIS explores how a locally running language model might act as a mediator between people and cultural material. Built as an early Unity prototype using Ollama and Qwen2.5, the project treats AI not as the subject of the work but as a design material within an interactive experience. It forms part of my broader exploration of how emerging technologies can support interpretation and meaning-making around cultural material.",
-    images: [
-      "/images/projects/omnis/Docs-omnis-ai-cultural-mediator.png",
-      "/images/projects/omnis/Docs-omnis-demo.gif",
-    ],
-    links: [
-      {
-        label: "GITHUB ↗",
-        href: "https://github.com/aylarfakheriyan/OMNIS",
-      },
-      {
-        label: "LIVE ↗",
-        href: "https://aylarfakheriyan.github.io/OMNIS/",
-      },
-    ],
-  },
 ];
 
 export default function Design() {
   const [openProject, setOpenProject] = useState<number | null>(null);
-  const [activeImage, setActiveImage] = useState<Record<number, number>>({});
 
   const toggleProject = (index: number) => {
-    setOpenProject((current) => (current === index ? null : index));
-  };
-
-  const getActiveImage = (projectIndex: number) => {
-    return activeImage[projectIndex] ?? 0;
-  };
-
-  const nextImage = (projectIndex: number, imageCount: number) => {
-    setActiveImage((current) => ({
-      ...current,
-      [projectIndex]:
-        ((current[projectIndex] ?? 0) + 1) % imageCount,
-    }));
-  };
-
-  const previousImage = (projectIndex: number, imageCount: number) => {
-    setActiveImage((current) => ({
-      ...current,
-      [projectIndex]:
-        ((current[projectIndex] ?? 0) - 1 + imageCount) %
-        imageCount,
-    }));
+    setOpenProject((current) =>
+      current === index ? null : index
+    );
   };
 
   return (
@@ -132,190 +173,124 @@ export default function Design() {
       <SiteNav />
 
       <main className="page-shell inner-page">
-        {/* HEADER */}
-
-        <header className="page-intro">
+        <header className="design-page-header">
           <span className="kicker">DESIGN</span>
 
-          <h1>
-            Making things,
-            <br />
-            <em>to find out.</em>
-          </h1>
-
           <p>
-            I work across visual communication, interactive media, XR,
-            and AI-assisted experiences, using making as a way to explore
-            how people encounter and make meaning with technology.
+            I make things to explore how people, objects and
+            technology can meet.
           </p>
         </header>
 
-        {/* PROJECTS */}
-
-        <div className="design-list">
+        <div className="design-project-list">
           {projects.map((project, index) => {
             const isOpen = openProject === index;
-            const currentImage = getActiveImage(index);
 
             return (
               <article
-                className={`design-card ${
+                key={project.title}
+                className={`design-project ${
                   isOpen ? "is-open" : ""
                 }`}
-                key={project.title}
               >
-                <div className="design-card-number">
-                  {project.number}
-                </div>
+                <button
+                  type="button"
+                  className="design-project-row"
+                  onClick={() => toggleProject(index)}
+                  aria-expanded={isOpen}
+                >
+                  <span className="design-project-number">
+                    {project.number}
+                  </span>
 
-                <div className="design-card-content">
-                  {/* PROJECT TITLE */}
-
-                  <button
-                    type="button"
-                    className="design-project-trigger"
-                    onClick={() => toggleProject(index)}
-                    aria-expanded={isOpen}
-                  >
+                  <span className="design-project-main">
                     <span className="design-project-title">
                       {project.title}
                     </span>
 
-                    <span className="design-project-meta">
-                      {project.year}
+                    <span className="design-project-summary">
+                      {project.summary}
                     </span>
+                  </span>
 
-                    <span
-                      className={`design-project-symbol ${
-                        isOpen ? "open" : ""
-                      }`}
-                    >
-                      +
-                    </span>
-                  </button>
-
-                  {/* ONE-LINE SUMMARY */}
-
-                  <p className="design-project-summary">
-                    {project.summary}
-                  </p>
-
-                  {/* EXPANDED PROJECT */}
-
-                  <div
-                    className={`design-project-details ${
-                      isOpen ? "visible" : ""
+                  <span
+                    className={`design-project-mark ${
+                      project.mark ? "" : "placeholder"
                     }`}
                   >
-                    <div className="design-project-gallery">
-                      <div className="design-gallery-frame">
-                        <img
-                          src={project.images[currentImage]}
-                          alt={`${project.title} — image ${
-                            currentImage + 1
-                          }`}
-                        />
+                    {project.mark && (
+                      <img
+                        src={project.mark}
+                        alt=""
+                      />
+                    )}
+                  </span>
 
-                        {project.images.length > 1 && (
-                          <>
-                            <button
-                              type="button"
-                              className="gallery-button gallery-prev"
-                              onClick={() =>
-                                previousImage(
-                                  index,
-                                  project.images.length
-                                )
-                              }
-                              aria-label="Previous image"
-                            >
-                              ←
-                            </button>
+                  <span
+                    className={`design-project-plus ${
+                      isOpen ? "open" : ""
+                    }`}
+                  >
+                    +
+                  </span>
+                </button>
 
-                            <button
-                              type="button"
-                              className="gallery-button gallery-next"
-                              onClick={() =>
-                                nextImage(
-                                  index,
-                                  project.images.length
-                                )
-                              }
-                              aria-label="Next image"
-                            >
-                              →
-                            </button>
-
-                            <div className="gallery-counter">
-                              {String(currentImage + 1).padStart(
-                                2,
-                                "0"
-                              )}{" "}
-                              /{" "}
-                              {String(project.images.length).padStart(
-                                2,
-                                "0"
-                              )}
-                            </div>
-                          </>
-                        )}
-                      </div>
-
-                      {/* THUMBNAILS */}
-
-                      {project.images.length > 1 && (
-                        <div className="gallery-thumbnails">
-                          {project.images.map((image, imageIndex) => (
-                            <button
-                              type="button"
-                              key={image}
-                              className={`gallery-thumbnail ${
-                                currentImage === imageIndex
-                                  ? "active"
-                                  : ""
-                              }`}
-                              onClick={() =>
-                                setActiveImage((current) => ({
-                                  ...current,
-                                  [index]: imageIndex,
-                                }))
-                              }
-                              aria-label={`View image ${
-                                imageIndex + 1
-                              }`}
-                            >
-                              <img
-                                src={image}
-                                alt=""
-                              />
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-
-                    {/* DESCRIPTION */}
-
+                {isOpen && (
+                  <div className="design-project-expanded">
                     <div className="design-project-description">
                       <p>{project.description}</p>
+                    </div>
 
-                      {project.links && (
-                        <div className="design-project-links">
-                          {project.links.map((link) => (
-                            <a
-                              key={link.href}
-                              href={link.href}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              {link.label}
-                            </a>
-                          ))}
-                        </div>
-                      )}
+                    {(project.images.length > 0 || project.video) && (
+                      <div className="design-project-media">
+                        {project.images.map((image, imageIndex) => (
+                          <div
+                            className="design-project-image"
+                            key={image}
+                          >
+                            <img
+                              src={image}
+                              alt={`${project.title} ${imageIndex + 1}`}
+                            />
+                          </div>
+                        ))}
+
+                        {project.video && (
+                          <div className="design-project-video">
+                            <iframe
+                              title={`${project.title} — Vimeo`}
+                              src={project.video}
+                              width="640"
+                              height="360"
+                              frameBorder="0"
+                              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                              allowFullScreen
+                            />
+                          </div>
+                        )}
+                      </div>
+                    )}
+
+                    <div className="design-project-footer">
+                      <span>
+                        For the broader trajectory of the project:
+                      </span>
+
+                      <div className="design-project-links">
+                        {project.links.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </article>
             );
           })}

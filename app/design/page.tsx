@@ -35,7 +35,7 @@ const projects: Project[] = [
     vimeo: "https://player.vimeo.com/video/1212795596?h=d2fc98196e",
     links: [
       {
-        label: "View on Vimeo",
+        label: "VIMEO",
         href: "https://vimeo.com/1212795596",
       },
     ],
@@ -57,15 +57,15 @@ const projects: Project[] = [
     ],
     links: [
       {
-        label: "GitHub",
+        label: "GITHUB",
         href: "https://github.com/aylarfakheriyan/Chess-with-Ferdowsi-",
       },
       {
-        label: "Live project",
+        label: "LIVE PROJECT",
         href: "https://aylarfakheriyan.github.io/Chess-with-Ferdowsi-/",
       },
       {
-        label: "Behance",
+        label: "BEHANCE",
         href: "https://www.behance.net/gallery/253451165/Chess-with-Ferdowsi",
       },
     ],
@@ -88,7 +88,7 @@ const projects: Project[] = [
     vimeo: "https://player.vimeo.com/video/1223148169?h=33069206dc",
     links: [
       {
-        label: "View on Vimeo",
+        label: "VIMEO",
         href: "https://vimeo.com/1223148169",
       },
     ],
@@ -101,21 +101,19 @@ const projects: Project[] = [
     description:
       "An interactive virtual reality experience exploring the Simurgh myth through immersive storytelling and environmental interaction.",
     mark: "/images/projects/simurgh/simurgh-mark.png",
-    images: [
-      "/images/projects/simurgh/simurgh-header.jpg",
-    ],
+    images: ["/images/projects/simurgh/simurgh-header.jpg"],
     vimeo: "https://player.vimeo.com/video/1211843738?h=70095fea1b",
     links: [
       {
-        label: "GitHub",
+        label: "GITHUB",
         href: "https://github.com/aylarfakheriyan/Simurgh-RtD",
       },
       {
-        label: "Live project",
+        label: "LIVE PROJECT",
         href: "https://aylarfakheriyan.github.io/Simurgh-RtD/",
       },
       {
-        label: "Behance",
+        label: "BEHANCE",
         href: "https://www.behance.net/gallery/253057297/04_Simurgh-Interactive-VR-Experience",
       },
     ],
@@ -135,11 +133,11 @@ const projects: Project[] = [
     vimeo: "https://player.vimeo.com/video/1211521489?h=f31736f5e6",
     links: [
       {
-        label: "GitHub",
+        label: "GITHUB",
         href: "https://github.com/aylarfakheriyan/OMNIS",
       },
       {
-        label: "Live project",
+        label: "LIVE PROJECT",
         href: "https://aylarfakheriyan.github.io/OMNIS/",
       },
     ],
@@ -150,11 +148,11 @@ export default function DesignPage() {
   const [openProject, setOpenProject] = useState<number | null>(null);
 
   const toggleProject = (index: number) => {
-    setOpenProject(openProject === index ? null : index);
+    setOpenProject((current) => (current === index ? null : index));
   };
 
   const handleKeyDown = (
-    event: KeyboardEvent<HTMLDivElement>,
+    event: KeyboardEvent<HTMLButtonElement>,
     index: number
   ) => {
     if (event.key === "Enter" || event.key === " ") {
@@ -167,7 +165,7 @@ export default function DesignPage() {
     <>
       <SiteNav />
 
-      <main className="page-shell design-page">
+      <main className="design-page">
         <header className="design-intro">
           <div className="design-kicker">DESIGN</div>
 
@@ -177,7 +175,7 @@ export default function DesignPage() {
           </h1>
         </header>
 
-        <section className="design-index">
+        <section className="design-index" aria-label="Design projects">
           {projects.map((project, index) => {
             const isOpen = openProject === index;
 
@@ -186,39 +184,46 @@ export default function DesignPage() {
                 className={`design-entry ${isOpen ? "is-open" : ""}`}
                 key={project.title}
               >
-                <div
+                <button
+                  type="button"
                   className="design-entry-header"
-                  role="button"
-                  tabIndex={0}
                   aria-expanded={isOpen}
                   onClick={() => toggleProject(index)}
                   onKeyDown={(event) => handleKeyDown(event, index)}
                 >
-                  <div className="design-entry-number">
+                  <span className="design-entry-number">
                     {project.number}
-                  </div>
+                  </span>
 
-                  <div className="design-entry-mark">
-                    {project.mark ? (
+                  <span
+                    className={`design-entry-mark ${
+                      isOpen ? "is-active" : ""
+                    }`}
+                  >
+                    {project.mark && (
                       <img
                         src={project.mark}
                         alt=""
                         aria-hidden="true"
                       />
-                    ) : (
-                      <span />
                     )}
-                  </div>
+                  </span>
 
-                  <div className="design-entry-copy">
-                    <h2>{project.title}</h2>
-                    <p>{project.summary}</p>
-                  </div>
+                  <span className="design-entry-copy">
+                    <span className="design-entry-title">
+                      {project.title}
+                    </span>
 
-                  <div className="design-entry-indicator">
-                    {isOpen ? "−" : "+"}
-                  </div>
-                </div>
+                    <span className="design-entry-summary">
+                      {project.summary}
+                    </span>
+                  </span>
+
+                  <span
+                    className="design-entry-state"
+                    aria-hidden="true"
+                  />
+                </button>
 
                 {isOpen && (
                   <div className="design-entry-content">
@@ -229,7 +234,7 @@ export default function DesignPage() {
                     {project.images && project.images.length > 0 && (
                       <div className="design-media-grid">
                         {project.images.map((image, imageIndex) => (
-                          <div
+                          <figure
                             className="design-media-item"
                             key={image}
                           >
@@ -237,7 +242,7 @@ export default function DesignPage() {
                               src={image}
                               alt={`${project.title} ${imageIndex + 1}`}
                             />
-                          </div>
+                          </figure>
                         ))}
                       </div>
                     )}
@@ -275,6 +280,273 @@ export default function DesignPage() {
           })}
         </section>
       </main>
+
+      <style jsx>{`
+        .design-page {
+          width: min(100% - 48px, 980px);
+          margin: 0 auto;
+          padding: 78px 0 120px;
+        }
+
+        .design-intro {
+          margin-bottom: 92px;
+        }
+
+        .design-kicker {
+          margin-bottom: 12px;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+        }
+
+        .design-intro h1 {
+          max-width: 610px;
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 25px;
+          line-height: 1.35;
+          font-weight: 600;
+          letter-spacing: -0.025em;
+        }
+
+        .design-index {
+          width: 100%;
+        }
+
+        .design-entry {
+          border-top: 1px solid rgba(0, 0, 0, 0.14);
+        }
+
+        .design-entry:last-child {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+        }
+
+        .design-entry-header {
+          appearance: none;
+          width: 100%;
+          border: 0;
+          background: transparent;
+          padding: 27px 0;
+          display: grid;
+          grid-template-columns: 42px 52px minmax(0, 1fr) 20px;
+          column-gap: 14px;
+          align-items: center;
+          text-align: left;
+          cursor: pointer;
+          color: inherit;
+        }
+
+        .design-entry-header:hover .design-entry-title {
+          transform: translateX(3px);
+        }
+
+        .design-entry-number {
+          align-self: start;
+          padding-top: 5px;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 9px;
+          line-height: 1;
+          font-weight: 700;
+          color: #d52828;
+          letter-spacing: 0.05em;
+        }
+
+        .design-entry-mark {
+          width: 42px;
+          height: 42px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 180ms ease;
+        }
+
+        .design-entry-mark img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        .design-entry-mark.is-active {
+          transform: scale(1.08);
+        }
+
+        .design-entry-copy {
+          min-width: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 7px;
+        }
+
+        .design-entry-title {
+          display: block;
+          font-family: Georgia, "Times New Roman", serif;
+          font-size: 20px;
+          line-height: 1.15;
+          font-weight: 500;
+          letter-spacing: -0.02em;
+          transition: transform 180ms ease;
+        }
+
+        .design-entry-summary {
+          display: block;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 12px;
+          line-height: 1.4;
+          font-weight: 400;
+        }
+
+        .design-entry-state {
+          position: relative;
+          width: 12px;
+          height: 12px;
+          justify-self: end;
+        }
+
+        .design-entry-state::before,
+        .design-entry-state::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          width: 8px;
+          height: 1px;
+          background: currentColor;
+          transform: translate(-50%, -50%);
+          transition: transform 180ms ease;
+        }
+
+        .design-entry-state::after {
+          transform: translate(-50%, -50%) rotate(90deg);
+        }
+
+        .design-entry.is-open .design-entry-state::after {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+
+        .design-entry-content {
+          margin: 0 0 42px 108px;
+          padding-left: 22px;
+          border-left: 1px solid #d52828;
+        }
+
+        .design-entry-description {
+          max-width: 600px;
+          padding: 4px 0 30px;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 13px;
+          line-height: 1.65;
+        }
+
+        .design-media-grid {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+          gap: 8px;
+          margin-bottom: 26px;
+        }
+
+        .design-media-item {
+          min-width: 0;
+          margin: 0;
+          aspect-ratio: 1 / 1;
+          overflow: hidden;
+          background: #eee;
+        }
+
+        .design-media-item img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+
+        .design-video {
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          margin-bottom: 28px;
+          background: #111;
+          overflow: hidden;
+        }
+
+        .design-video iframe {
+          display: block;
+          width: 100%;
+          height: 100%;
+          border: 0;
+        }
+
+        .design-entry-links {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 18px;
+          padding-bottom: 4px;
+        }
+
+        .design-entry-links a {
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 10px;
+          line-height: 1;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-decoration: none;
+          color: inherit;
+        }
+
+        .design-entry-links a:hover {
+          color: #d52828;
+        }
+
+        @media (max-width: 700px) {
+          .design-page {
+            width: min(100% - 32px, 980px);
+            padding-top: 54px;
+          }
+
+          .design-intro {
+            margin-bottom: 60px;
+          }
+
+          .design-intro h1 {
+            font-size: 21px;
+          }
+
+          .design-entry-header {
+            grid-template-columns: 30px 42px minmax(0, 1fr) 16px;
+            column-gap: 10px;
+            padding: 22px 0;
+          }
+
+          .design-entry-mark {
+            width: 36px;
+            height: 36px;
+          }
+
+          .design-entry-title {
+            font-size: 17px;
+          }
+
+          .design-entry-summary {
+            font-size: 11px;
+          }
+
+          .design-entry-content {
+            margin-left: 0;
+            padding-left: 14px;
+          }
+
+          .design-media-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+        }
+
+        @media (max-width: 420px) {
+          .design-media-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      `}</style>
     </>
   );
 }

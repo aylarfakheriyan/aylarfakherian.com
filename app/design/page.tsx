@@ -1,6 +1,6 @@
 "use client";
 
-import { KeyboardEvent, useState } from "react";
+import { useState, KeyboardEvent } from "react";
 import SiteNav from "../components/SiteNav";
 
 type Project = {
@@ -8,10 +8,10 @@ type Project = {
   title: string;
   summary: string;
   description: string;
-  mark: string;
-  images: string[];
-  video?: string;
-  links: {
+  mark?: string;
+  images?: string[];
+  vimeo?: string;
+  links?: {
     label: string;
     href: string;
   }[];
@@ -21,16 +21,21 @@ const projects: Project[] = [
   {
     number: "01",
     title: "Worlds before worlds",
-    summary: "A World Made by Hand",
+    summary: "A World Entirely Made by Hand",
     description:
-      "Images could describe a world. They couldn't convince my mind that it existed.\n\nThrough illustration, photography, and graphic design, I learned to communicate ideas visually. But the worlds I imagined always remained on the other side of the surface. This project begins from that distance.",
-    mark: "",
-    images: [],
-    video:
-      "https://player.vimeo.com/video/1212795596?h=d2fc98196e",
+      "An exploration of world-building through handmade materials, objects, and environments.",
+    mark: "/images/projects/worlds-before-worlds/worlds-before-worlds-mark.png",
+    images: [
+      "/images/projects/worlds-before-worlds/01-worlds-before-worlds.png",
+      "/images/projects/worlds-before-worlds/02-worlds-before-worlds.png",
+      "/images/projects/worlds-before-worlds/03-worlds-before-worlds.png",
+      "/images/projects/worlds-before-worlds/04-worlds-before-worlds.png",
+      "/images/projects/worlds-before-worlds/05-worlds-before-worlds.png",
+    ],
+    vimeo: "https://player.vimeo.com/video/1212795596?h=d2fc98196e",
     links: [
       {
-        label: "VIMEO ↗",
+        label: "View on Vimeo",
         href: "https://vimeo.com/1212795596",
       },
     ],
@@ -39,30 +44,28 @@ const projects: Project[] = [
   {
     number: "02",
     title: "Chess with Ferdowsi",
-    summary: "Embodied Encounters through Artefacts",
+    summary: "Embodied Interaction through Artefacts",
     description:
-      "An ongoing Research through Design investigation into how physical and virtual artefacts can shape embodied encounters with cultural narratives.",
-    mark:
-      "/images/projects/chess-with-ferdowsi/chess-with-ferdowsi-mark.png",
+      "An ongoing Research through Design investigation into how physical and virtual artefacts can shape embodied interaction with cultural narratives.",
+    mark: "/images/projects/chess-with-ferdowsi/chess-with-ferdowsi-mark.png",
     images: [
       "/images/projects/chess-with-ferdowsi/01-greed-performance-chess-with-ferdowsi-aylar-fakherian.jpg",
       "/images/projects/chess-with-ferdowsi/02-love-performance-chess-with-ferdowsi-aylar-fakherian.jpg",
       "/images/projects/chess-with-ferdowsi/03-deception-performance-chess-with-ferdowsi-aylar-fakherian.jpg",
       "/images/projects/chess-with-ferdowsi/04-div-sepid-performance-chess-with-ferdowsi-aylar-fakherian.jpg",
       "/images/projects/chess-with-ferdowsi/05-belligerent-performance-chess-with-aylar-fakherian.jpg",
-      "/images/projects/chess-with-ferdowsi/PHOTO-09.jpg",
     ],
     links: [
       {
-        label: "LIVE ↗",
-        href: "https://aylarfakheriyan.github.io/Chess-with-Ferdowsi-/",
-      },
-      {
-        label: "GITHUB ↗",
+        label: "GitHub",
         href: "https://github.com/aylarfakheriyan/Chess-with-Ferdowsi-",
       },
       {
-        label: "BEHANCE ↗",
+        label: "Live project",
+        href: "https://aylarfakheriyan.github.io/Chess-with-Ferdowsi-/",
+      },
+      {
+        label: "Behance",
         href: "https://www.behance.net/gallery/253451165/Chess-with-Ferdowsi",
       },
     ],
@@ -71,16 +74,21 @@ const projects: Project[] = [
   {
     number: "03",
     title: "Hidden Relationships",
-    summary: "A Shift From Making to Observing",
+    summary: "A Shift from Making to Observing",
     description:
-      "An emerging design investigation that shifts attention from making things to observing the relationships that form around them.",
-    mark: "",
-    images: [],
-    video:
-      "https://player.vimeo.com/video/1223148169?h=33069206dc",
+      "An exploration of relationships, observation, and the shift between actively making and quietly noticing.",
+    mark: "/images/projects/hidden-relationships/hidden-relationships-mark.png",
+    images: [
+      "/images/projects/hidden-relationships/01-hidden-relationships.png",
+      "/images/projects/hidden-relationships/02-hidden-relationships.png",
+      "/images/projects/hidden-relationships/03-hidden-relationships.png",
+      "/images/projects/hidden-relationships/04-hidden-relationships.png",
+      "/images/projects/hidden-relationships/05-hidden-relationships.png",
+    ],
+    vimeo: "https://player.vimeo.com/video/1223148169?h=33069206dc",
     links: [
       {
-        label: "VIMEO ↗",
+        label: "View on Vimeo",
         href: "https://vimeo.com/1223148169",
       },
     ],
@@ -89,31 +97,26 @@ const projects: Project[] = [
   {
     number: "04",
     title: "Simurgh",
-    summary: "An Encounter Beyond the Page",
+    summary: "Interactive VR Experience",
     description:
-      "An interactive virtual reality experience based on the Persian Simurgh myth, exploring environment, storytelling, animation and interaction within an immersive medium.",
+      "An interactive virtual reality experience exploring the Simurgh myth through immersive storytelling and environmental interaction.",
     mark: "/images/projects/simurgh/simurgh-mark.png",
     images: [
       "/images/projects/simurgh/simurgh-header.jpg",
     ],
-    video:
-      "https://player.vimeo.com/video/1211843738?h=70095fea1b",
+    vimeo: "https://player.vimeo.com/video/1211843738?h=70095fea1b",
     links: [
       {
-        label: "LIVE ↗",
-        href: "https://aylarfakheriyan.github.io/Simurgh-RtD/",
-      },
-      {
-        label: "GITHUB ↗",
+        label: "GitHub",
         href: "https://github.com/aylarfakheriyan/Simurgh-RtD",
       },
       {
-        label: "BEHANCE ↗",
-        href: "https://www.behance.net/gallery/253057297/04_Simurgh-Interactive-VR-Experience",
+        label: "Live project",
+        href: "https://aylarfakheriyan.github.io/Simurgh-RtD/",
       },
       {
-        label: "VIMEO ↗",
-        href: "https://vimeo.com/1211843738",
+        label: "Behance",
+        href: "https://www.behance.net/gallery/253057297/04_Simurgh-Interactive-VR-Experience",
       },
     ],
   },
@@ -121,40 +124,33 @@ const projects: Project[] = [
   {
     number: "05",
     title: "OMNIS",
-    summary: "A Unity prototype exploring local AI",
+    summary: "AI as a Cultural Mediator",
     description:
-      "An early Research through Design prototype exploring how a locally running language model might mediate interaction with cultural material.",
+      "An early Research through Design prototype exploring AI-mediated interaction for cultural heritage interpretation.",
     mark: "/images/projects/omnis/omnis-mark.png",
     images: [
       "/images/projects/omnis/Docs-omnis-ai-cultural-mediator.png",
       "/images/projects/omnis/Docs-omnis-demo.gif",
     ],
-    video:
-      "https://player.vimeo.com/video/1211521489?h=f31736f5e6",
+    vimeo: "https://player.vimeo.com/video/1211521489?h=f31736f5e6",
     links: [
       {
-        label: "LIVE ↗",
-        href: "https://aylarfakheriyan.github.io/OMNIS/",
-      },
-      {
-        label: "GITHUB ↗",
+        label: "GitHub",
         href: "https://github.com/aylarfakheriyan/OMNIS",
       },
       {
-        label: "VIMEO ↗",
-        href: "https://vimeo.com/1211521489",
+        label: "Live project",
+        href: "https://aylarfakheriyan.github.io/OMNIS/",
       },
     ],
   },
 ];
 
-export default function Design() {
+export default function DesignPage() {
   const [openProject, setOpenProject] = useState<number | null>(null);
 
   const toggleProject = (index: number) => {
-    setOpenProject((current) =>
-      current === index ? null : index
-    );
+    setOpenProject(openProject === index ? null : index);
   };
 
   const handleKeyDown = (
@@ -173,27 +169,22 @@ export default function Design() {
 
       <main className="page-shell design-page">
         <header className="design-intro">
-          <span className="design-kicker">DESIGN</span>
+          <div className="design-kicker">DESIGN</div>
 
-          <p className="design-lead">
-            I make things to explore how people, objects and
-            technology can meet.
-          </p>
+          <h1>
+            I make things to explore how people, objects and technology can
+            meet.
+          </h1>
         </header>
 
-        <section
-          className="design-index"
-          aria-label="Design projects"
-        >
+        <section className="design-index">
           {projects.map((project, index) => {
             const isOpen = openProject === index;
 
             return (
               <article
+                className={`design-entry ${isOpen ? "is-open" : ""}`}
                 key={project.title}
-                className={`design-entry ${
-                  isOpen ? "is-open" : ""
-                }`}
               >
                 <div
                   className="design-entry-header"
@@ -201,15 +192,13 @@ export default function Design() {
                   tabIndex={0}
                   aria-expanded={isOpen}
                   onClick={() => toggleProject(index)}
-                  onKeyDown={(event) =>
-                    handleKeyDown(event, index)
-                  }
+                  onKeyDown={(event) => handleKeyDown(event, index)}
                 >
-                  <span className="design-entry-number">
+                  <div className="design-entry-number">
                     {project.number}
-                  </span>
+                  </div>
 
-                  <span className="design-entry-mark">
+                  <div className="design-entry-mark">
                     {project.mark ? (
                       <img
                         src={project.mark}
@@ -217,96 +206,68 @@ export default function Design() {
                         aria-hidden="true"
                       />
                     ) : (
-                      <span
-                        className="design-entry-mark-placeholder"
-                        aria-hidden="true"
-                      />
+                      <span />
                     )}
-                  </span>
+                  </div>
 
-                  <span className="design-entry-info">
-                    <span className="design-entry-title">
-                      {project.title}
-                    </span>
+                  <div className="design-entry-copy">
+                    <h2>{project.title}</h2>
+                    <p>{project.summary}</p>
+                  </div>
 
-                    <span className="design-entry-summary">
-                      {project.summary}
-                    </span>
-                  </span>
-
-                  <span
-                    className="design-entry-state"
-                    aria-hidden="true"
-                  >
-                    {isOpen ? "−" : ""}
-                  </span>
+                  <div className="design-entry-indicator">
+                    {isOpen ? "−" : "+"}
+                  </div>
                 </div>
 
                 {isOpen && (
-                  <div className="design-entry-detail">
-                    <div className="design-entry-detail-inner">
-                      <div className="design-entry-description">
-                        {project.description
-                          .split("\n\n")
-                          .map((paragraph) => (
-                            <p key={paragraph}>
-                              {paragraph}
-                            </p>
-                          ))}
-                      </div>
-
-                      {(project.images.length > 0 ||
-                        project.video) && (
-                        <div className="design-entry-media">
-                          {project.images.map(
-                            (image, imageIndex) => (
-                              <figure
-                                className="design-entry-image"
-                                key={image}
-                              >
-                                <img
-                                  src={image}
-                                  alt={`${project.title} ${
-                                    imageIndex + 1
-                                  }`}
-                                />
-                              </figure>
-                            )
-                          )}
-
-                          {project.video && (
-                            <div className="design-entry-video">
-                              <iframe
-                                src={project.video}
-                                title={`${project.title} — Vimeo`}
-                                frameBorder="0"
-                                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                                allowFullScreen
-                              />
-                            </div>
-                          )}
-                        </div>
-                      )}
-
-                      <div className="design-entry-footer">
-                        <span className="design-entry-footer-label">
-                          Explore the project
-                        </span>
-
-                        <div className="design-entry-links">
-                          {project.links.map((link) => (
-                            <a
-                              key={link.href}
-                              href={link.href}
-                              target="_blank"
-                              rel="noreferrer"
-                            >
-                              {link.label}
-                            </a>
-                          ))}
-                        </div>
-                      </div>
+                  <div className="design-entry-content">
+                    <div className="design-entry-description">
+                      {project.description}
                     </div>
+
+                    {project.images && project.images.length > 0 && (
+                      <div className="design-media-grid">
+                        {project.images.map((image, imageIndex) => (
+                          <div
+                            className="design-media-item"
+                            key={image}
+                          >
+                            <img
+                              src={image}
+                              alt={`${project.title} ${imageIndex + 1}`}
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {project.vimeo && (
+                      <div className="design-video">
+                        <iframe
+                          src={project.vimeo}
+                          title={`${project.title} video`}
+                          frameBorder="0"
+                          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                          allowFullScreen
+                        />
+                      </div>
+                    )}
+
+                    {project.links && project.links.length > 0 && (
+                      <div className="design-entry-links">
+                        {project.links.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {link.label} ↗
+                          </a>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 )}
               </article>

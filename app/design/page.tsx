@@ -336,7 +336,7 @@ export default function DesignPage() {
         .design-kicker {
           margin-bottom: 16px;
           font-family: Georgia, "Times New Roman", serif;
-          font-size: clamp(28px, 3vw, 40px);
+          font-size: clamp(35px, 5vw, 50px);
           line-height: 1;
           font-weight: 400;
           font-style: italic;

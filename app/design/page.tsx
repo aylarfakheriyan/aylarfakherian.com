@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { KeyboardEvent, useState } from "react";
 import SiteNav from "../components/SiteNav";
 
 type Project = {
   number: string;
   title: string;
-  year: string;
   summary: string;
   description: string;
   mark: string;
@@ -22,10 +21,9 @@ const projects: Project[] = [
   {
     number: "01",
     title: "Worlds before worlds",
-    year: "2026–ongoing",
-    summary: "A world entirely made by hand.",
+    summary: "A World Made by Hand",
     description:
-      "A design exploration about building a world from the ground up, before digital mediation enters the picture.",
+      "Images could describe a world. They couldn't convince my mind that it existed.\n\nThrough illustration, photography, and graphic design, I learned to communicate ideas visually. But the worlds I imagined always remained on the other side of the surface. This project begins from that distance.",
     mark: "",
     images: [],
     video:
@@ -41,11 +39,9 @@ const projects: Project[] = [
   {
     number: "02",
     title: "Chess with Ferdowsi",
-    year: "2025–ongoing",
-    summary:
-      "An embodied exploration of cultural narratives through physical and virtual artefacts.",
+    summary: "Embodied Encounters through Artefacts",
     description:
-      "A Research through Design investigation into how physical and virtual artefacts shape embodied interaction with cultural narratives.",
+      "An ongoing Research through Design investigation into how physical and virtual artefacts can shape embodied encounters with cultural narratives.",
     mark:
       "/images/projects/chess-with-ferdowsi/chess-with-ferdowsi-mark.png",
     images: [
@@ -56,7 +52,6 @@ const projects: Project[] = [
       "/images/projects/chess-with-ferdowsi/05-belligerent-performance-chess-with-aylar-fakherian.jpg",
       "/images/projects/chess-with-ferdowsi/PHOTO-09.jpg",
     ],
-    video: undefined,
     links: [
       {
         label: "LIVE ↗",
@@ -76,10 +71,9 @@ const projects: Project[] = [
   {
     number: "03",
     title: "Hidden Relationships",
-    year: "2026–ongoing",
-    summary: "A shift from making to observing.",
+    summary: "A Shift From Making to Observing",
     description:
-      "An emerging exploration of what becomes visible when the act of making gives way to observing.",
+      "An emerging design investigation that shifts attention from making things to observing the relationships that form around them.",
     mark: "",
     images: [],
     video:
@@ -95,11 +89,9 @@ const projects: Project[] = [
   {
     number: "04",
     title: "Simurgh",
-    year: "2022–2026",
-    summary:
-      "An immersive VR experience exploring the Simurgh myth through environment, storytelling and interaction.",
+    summary: "An Encounter Beyond the Page",
     description:
-      "A Research through Design project investigating immersive experiences for transmitting intangible cultural heritage through Virtual Reality.",
+      "An interactive virtual reality experience based on the Persian Simurgh myth, exploring environment, storytelling, animation and interaction within an immersive medium.",
     mark: "/images/projects/simurgh/simurgh-mark.png",
     images: [
       "/images/projects/simurgh/simurgh-header.jpg",
@@ -129,11 +121,9 @@ const projects: Project[] = [
   {
     number: "05",
     title: "OMNIS",
-    year: "2025–ongoing",
-    summary:
-      "An early exploration of AI-mediated interaction with cultural material.",
+    summary: "A Unity prototype exploring local AI",
     description:
-      "A Unity prototype exploring local language-model integration and AI-mediated interaction with cultural material.",
+      "An early Research through Design prototype exploring how a locally running language model might mediate interaction with cultural material.",
     mark: "/images/projects/omnis/omnis-mark.png",
     images: [
       "/images/projects/omnis/Docs-omnis-ai-cultural-mediator.png",
@@ -161,119 +151,160 @@ const projects: Project[] = [
 export default function Design() {
   const [openProject, setOpenProject] = useState<number | null>(null);
 
+  const toggleProject = (index: number) => {
+    setOpenProject((current) =>
+      current === index ? null : index
+    );
+  };
+
+  const handleKeyDown = (
+    event: KeyboardEvent<HTMLDivElement>,
+    index: number
+  ) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      toggleProject(index);
+    }
+  };
+
   return (
     <>
       <SiteNav />
 
-      <main className="page-shell inner-page">
-        <header className="design-page-header">
-          <span className="kicker">DESIGN</span>
+      <main className="page-shell design-page">
+        <header className="design-intro">
+          <span className="design-kicker">DESIGN</span>
 
-          <p>
+          <p className="design-lead">
             I make things to explore how people, objects and
             technology can meet.
           </p>
         </header>
 
-        <div className="design-project-list">
+        <section
+          className="design-index"
+          aria-label="Design projects"
+        >
           {projects.map((project, index) => {
             const isOpen = openProject === index;
 
             return (
               <article
                 key={project.title}
-                className={`design-project ${
+                className={`design-entry ${
                   isOpen ? "is-open" : ""
                 }`}
               >
-                <button
-                  type="button"
-                  className="design-project-row"
-                  onClick={() =>
-                    setOpenProject(isOpen ? null : index)
-                  }
+                <div
+                  className="design-entry-header"
+                  role="button"
+                  tabIndex={0}
                   aria-expanded={isOpen}
+                  onClick={() => toggleProject(index)}
+                  onKeyDown={(event) =>
+                    handleKeyDown(event, index)
+                  }
                 >
-                  <span className="design-project-number">
+                  <span className="design-entry-number">
                     {project.number}
                   </span>
 
-                  <span className="design-project-main">
-                    <span className="design-project-title">
+                  <span className="design-entry-mark">
+                    {project.mark ? (
+                      <img
+                        src={project.mark}
+                        alt=""
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <span
+                        className="design-entry-mark-placeholder"
+                        aria-hidden="true"
+                      />
+                    )}
+                  </span>
+
+                  <span className="design-entry-info">
+                    <span className="design-entry-title">
                       {project.title}
                     </span>
 
-                    <span className="design-project-summary">
+                    <span className="design-entry-summary">
                       {project.summary}
                     </span>
                   </span>
 
-                  {project.mark ? (
-                    <span className="design-project-mark">
-                      <img
-                        src={project.mark}
-                        alt=""
-                      />
-                    </span>
-                  ) : (
-                    <span className="design-project-mark placeholder" />
-                  )}
-
-                  <span className="design-project-plus">
-                    {isOpen ? "−" : "+"}
+                  <span
+                    className="design-entry-state"
+                    aria-hidden="true"
+                  >
+                    {isOpen ? "−" : ""}
                   </span>
-                </button>
+                </div>
 
                 {isOpen && (
-                  <div className="design-project-expanded">
-                    <p className="design-project-description">
-                      {project.description}
-                    </p>
-
-                    {(project.images.length > 0 || project.video) && (
-                      <div className="design-project-media">
-                        {project.images.map((image, imageIndex) => (
-                          <div
-                            className="design-project-image"
-                            key={image}
-                          >
-                            <img
-                              src={image}
-                              alt={`${project.title} ${imageIndex + 1}`}
-                            />
-                          </div>
-                        ))}
-
-                        {project.video && (
-                          <div className="design-project-video">
-                            <iframe
-                              src={project.video}
-                              title={`${project.title} — Vimeo`}
-                              width="640"
-                              height="360"
-                              frameBorder="0"
-                              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                              allowFullScreen
-                            />
-                          </div>
-                        )}
+                  <div className="design-entry-detail">
+                    <div className="design-entry-detail-inner">
+                      <div className="design-entry-description">
+                        {project.description
+                          .split("\n\n")
+                          .map((paragraph) => (
+                            <p key={paragraph}>
+                              {paragraph}
+                            </p>
+                          ))}
                       </div>
-                    )}
 
-                    <div className="design-project-footer">
-                      <span>Explore the project:</span>
+                      {(project.images.length > 0 ||
+                        project.video) && (
+                        <div className="design-entry-media">
+                          {project.images.map(
+                            (image, imageIndex) => (
+                              <figure
+                                className="design-entry-image"
+                                key={image}
+                              >
+                                <img
+                                  src={image}
+                                  alt={`${project.title} ${
+                                    imageIndex + 1
+                                  }`}
+                                />
+                              </figure>
+                            )
+                          )}
 
-                      <div className="design-project-links">
-                        {project.links.map((link) => (
-                          <a
-                            key={link.href}
-                            href={link.href}
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            {link.label}
-                          </a>
-                        ))}
+                          {project.video && (
+                            <div className="design-entry-video">
+                              <iframe
+                                src={project.video}
+                                title={`${project.title} — Vimeo`}
+                                frameBorder="0"
+                                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                                allowFullScreen
+                              />
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      <div className="design-entry-footer">
+                        <span className="design-entry-footer-label">
+                          Explore the project
+                        </span>
+
+                        <div className="design-entry-links">
+                          {project.links.map((link) => (
+                            <a
+                              key={link.href}
+                              href={link.href}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {link.label}
+                            </a>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -281,7 +312,7 @@ export default function Design() {
               </article>
             );
           })}
-        </div>
+        </section>
       </main>
     </>
   );

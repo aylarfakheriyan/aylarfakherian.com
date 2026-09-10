@@ -493,7 +493,7 @@ export default function DesignPage() {
         .design-media-item {
           min-width: 0;
           margin: 0;
-          aspect-ratio: 1 / 1;
+          aspect-ratio: 2 / 3;
           overflow: hidden;
           background: #eee;
         }

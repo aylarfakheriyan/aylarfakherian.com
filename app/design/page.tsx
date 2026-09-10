@@ -336,21 +336,21 @@ export default function DesignPage() {
         .design-kicker {
           margin-bottom: 16px;
           font-family: Georgia, "Times New Roman", serif;
-          font-size: 58px;
-          line-height: 0.95;
+          font-size: clamp(54px, 5.8vw, 76px);
+          line-height: 0.92;
           font-weight: 400;
           font-style: italic;
-          letter-spacing: -0.04em;
+          letter-spacing: -0.055em;
         }
 
         .design-intro h1 {
           max-width: 610px;
           margin: 0;
           font-family: Arial, Helvetica, sans-serif;
-          font-size: 17px;
-          line-height: 1.55;
-          font-weight: 400;
-          letter-spacing: 0;
+          font-size: clamp(54px, 5.8vw, 76px);
+          line-height: 0.92;
+          font-weight: 500;
+          letter-spacing: -0.055em;
         }
 
         .design-index {

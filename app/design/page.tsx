@@ -194,7 +194,7 @@ export default function DesignPage() {
 
       <main className="design-page">
         <header className="design-intro">
-          <div className="design-kicker">DESIGN</div>
+          <div className="design-kicker">Design</div>
 
           <h1>
             I make things to explore how people, objects and technology can
@@ -336,21 +336,21 @@ export default function DesignPage() {
         .design-kicker {
           margin-bottom: 16px;
           font-family: Georgia, "Times New Roman", serif;
-          font-size: clamp(54px, 5.8vw, 76px);
-          line-height: 0.92;
+          font-size: clamp(28px, 3vw, 40px);
+          line-height: 1;
           font-weight: 400;
           font-style: italic;
-          letter-spacing: -0.055em;
+          letter-spacing: -0.04em;
         }
 
         .design-intro h1 {
           max-width: 610px;
           margin: 0;
           font-family: Arial, Helvetica, sans-serif;
-          font-size: clamp(54px, 5.8vw, 76px);
-          line-height: 0.92;
+          font-size: clamp(28px, 3vw, 40px)
+          line-height: 1.05;
           font-weight: 500;
-          letter-spacing: -0.055em;
+          letter-spacing: -0.04em;
         }
 
         .design-index {
